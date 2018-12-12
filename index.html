@@ -33,19 +33,19 @@
 </head>
 
 <body>
-  <h1>Chaintai calculator</h1>
+  <h1>Chaintai calculator/Chintai计算器</h1>
 
   <div class="timeSetting">
-    <label for="input">Next Undelegate Time</label>
+    <label for="input"> 下次批量赎回的时间</label>
     <input type="text" id="nextUnstakeTime" placeholder="mm/dd hh:mm" value="12/13 09:15">
 
-    <label for="input">Next Refund</label>
+    <label for="input">下次赎回到账时间</label>
     <input type="text" id="nextRefundTime" placeholder="mm/dd hh:mm" value="12/13 01:16">
 
     <button id="submitBtn" class="btn btn-primary">Submit</button>
     <div>
-      Note: Please input the UTC time which show on chintai website, every time below is UTC format
-    </div>
+      <p>请输入Chintai网站上所显示的UTC时间。请按照所显示的格式填写</p>
+     </div>
 
   </div>
 
@@ -115,12 +115,12 @@
       })
       data.push({
         time: moment.tz(u_date, "UTC").format("YYYY-MM-DD HH:mm z"),
-        action: "unstake",
+        action: "发起批量赎回",
         timestamp: u_date.getTime()
       });
       data.push({
         time: moment.tz(r_date, "UTC").format("YYYY-MM-DD HH:mm z"),
-        action: "refund",
+        action: "赎回到账",
         timestamp: r_date.getTime()
       })
 
@@ -129,12 +129,12 @@
         r_date.setHours(r_date.getHours() + 80);
         var entry1 = {
           time: moment.tz(u_date, "UTC").format("YYYY-MM-DD HH:mm z"),
-          action: "unstake",
+          action: "发起批量赎回",
           timestamp: u_date.getTime()
         }
         var entry2 = {
           time: moment.tz(r_date, "UTC").format("YYYY-MM-DD HH:mm z"),
-          action: "refund",
+          action: "赎回到账",
           timestamp: r_date.getTime()
         }
         data.push(entry1);
